@@ -39,6 +39,8 @@ function popValue() {
     popped = poping.join('')
     display.value = popped
 
+    currencyDisplayTwo.value = currencyDisplayTwo.popover
+
     currpoping = currencyDisplay.value.split('')
     currpoping.pop()
     currpopped = currpoping.join('')
