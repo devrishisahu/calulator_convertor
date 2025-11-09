@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body>
+
+    <div class="flex justify-center items-center h-screen w-full bg-lime-300">
+
+        <div
+            class=" flex flex-col min-h-120 w-90 rounded-2xl bg-lime-100 border-3 py-2 border-stone-300 shadow-2xl overflow-hidden">
+
+            <input id="display" readonly type="text"
+                class=" border-b-2 my-2 border-stone-300 pr-2 h-30 outline-none items-end text-4xl text-end text-ellipsis  ">
+
+            <div id="displayTwo"
+                class=" border-b-2 my-2 border-stone-300 pr-2 pb-3 h-30 justify-end outline-none flex flex-col text-end text-ellipsis hidden ">
+                <div class="flex items-center justify-end">
+                    <p id="currencyCode" class="text-2xl font-semibold mr-1">USD</p>
+                    <input id="currencyDisplay" readonly
+                        class="border-2 rounded-xl outline-none h-10 w-20 p-2 flex justify-end " type="number"
+                        placeholder="0.00">
+                    <select onchange="selectCountry()"
+                        class="appearance-non  outline-none text-ellipsis w-20 p-2 text-[10px]" name=""
+                        id="currencyOne">
+
+                        <option value="ARS">Argentine-Peso</option>
+                        <option value="AUD">Australian-Dollar</option>
+                        <option value="BCH">Bitcoin-Cash</option>
+                        <option value="BGN">Bulgarian-Lev</option>
+                        <option value="BNB">Binance-Coin</option>
+                        <option value="BRL">Brazilian-Real</option>
+                        <option value="BTC">Bitcoin</option>
+                        <option value="CAD">Canadian-Dollar</option>
+                        <option value="CHF">Swiss-Franc</option>
+                        <option value="CNY">Chinese-Yuan</option>
+                        <option value="CYP">Cypriot-Pound</option>
+                        <option value="CZK">Czech-Republic-Koruna</option>
+                        <option value="DKK">Danish-Krone</option>
+                        <option value="DOGE">Dogecoin</option>
+                        <option value="DZD">Algerian-Dinar</option>
+                        <option value="EEK">Estonian-Kroon</option>
+                        <option value="ETH">Ethereum</option>
+                        <option value="EUR">Euro</option>
+                        <option value="GBP">British-Pound-Sterling</option>
+                        <option value="GRD">Greek-Drachma</option>
+                        <option value="HKD">Hong-Kong-Dollar</option>
+                        <option value="HRK">Croatian-Kuna</option>
+                        <option value="HUF">Hungarian-Forint</option>
+                        <option value="IDR">Indonesian-Rupiah</option>
+                        <option value="ILS">Israeli-New-Sheqel</option>
+                        <option value="INR">Indian-Rupee</option>
+                        <option value="ISK">Icelandi-Króna</option>
+                        <option value="JPY">Japanese-Yen</option>
+                        <option value="KRW">South-Korean-Won</option>
+                        <option value="LTC">Litecoin</option>
+                        <option value="LTL">Lithuanian-Litas</option>
+                        <option value="LVL">Latvian-Lats</option>
+                        <option value="MAD">Moroccan-Dirham</option>
+                        <option value="MTL">Maltese-Lira</option>
+                        <option value="MXN">Mexican-Peso</option>
+                        <option value="MYR">Malaysian-Ringgit</option>
+                        <option value="NOK">Norwegian-Krone</option>
+                        <option value="NZD">New-Zealand-Dollar</option>
+                        <option value="PHP">Philippine-Peso</option>
+                        <option value="PLN">Polish-Zloty</option>
+                        <option value="RON">Romanian-Leu</option>
+                        <option value="RUB">Russian-Ruble</option>
+                        <option value="SEK">Swedish-Krona</option>
+                        <option value="SGD">Singapore-Dollar</option>
+                        <option value="SIT">Slovenian-Tolar</option>
+                        <option value="SKK">Slovak-Koruna</option>
+                        <option value="THB">Thai-Baht</option>
+                        <option value="TRY">Turkish-Lira</option>
+                        <option value="TWD">New-Taiwan-Dollar</option>
+                        <option selected value="USD">United-States-Dollar</option>
+                        <option value="XRP">Ripple</option>
+                        <option value="ZAR">South-African-Rand</option>
+
+
+                    </select>
+                </div>
+               <div class="relative">
+               <div class=" absolute right-9 rotate-90 z-1 bg-lime-100 text-green-700"> <i class="fa-solid fa-money-bill-transfer"></i></div>
+                 <hr class="border-1 border-stone-300 relative left-10 w-80 my-2"></div>
+                <div class="flex items-center justify-end">
+                    <p id="currencyCodeTwo" class="text-2xl font-semibold mr-1">INR</p>
+                    <input id="currencyDisplayTwo" readonly
+                        class="border-2 rounded-xl outline-none h-10 w-20 p-2 flex justify-end " type="number"
+                        placeholder="0.00">
+                    <select onchange="selectCountry()"
+                        class="appearance-non  outline-none text-ellipsis w-20 p-2 text-[10px]" name=""
+                        id="currencyTwo">
+
+                        <option value="ARS">Argentine-Peso</option>
+                        <option value="AUD">Australian-Dollar</option>
+                        <option value="BCH">Bitcoin-Cash</option>
+                        <option value="BGN">Bulgarian-Lev</option>
+                        <option value="BNB">Binance-Coin</option>
+                        <option value="BRL">Brazilian-Real</option>
+                        <option value="BTC">Bitcoin</option>
+                        <option value="CAD">Canadian-Dollar</option>
+                        <option value="CHF">Swiss-Franc</option>
+                        <option value="CNY">Chinese-Yuan</option>
+                        <option value="CYP">Cypriot-Pound</option>
+                        <option value="CZK">Czech-Republic-Koruna</option>
+                        <option value="DKK">Danish-Krone</option>
+                        <option value="DOGE">Dogecoin</option>
+                        <option value="DZD">Algerian-Dinar</option>
+                        <option value="EEK">Estonian-Kroon</option>
+                        <option value="ETH">Ethereum</option>
+                        <option value="EUR">Euro</option>
+                        <option value="GBP">British-Pound-Sterling</option>
+                        <option value="GRD">Greek-Drachma</option>
+                        <option value="HKD">Hong-Kong-Dollar</option>
+                        <option value="HRK">Croatian-Kuna</option>
+                        <option value="HUF">Hungarian-Forint</option>
+                        <option value="IDR">Indonesian-Rupiah</option>
+                        <option value="ILS">Israeli-New-Sheqel</option>
+                        <option selected value="INR">Indian-Rupee</option>
+                        <option value="ISK">Icelandi-Króna</option>
+                        <option value="JPY">Japanese-Yen</option>
+                        <option value="KRW">South-Korean-Won</option>
+                        <option value="LTC">Litecoin</option>
+                        <option value="LTL">Lithuanian-Litas</option>
+                        <option value="LVL">Latvian-Lats</option>
+                        <option value="MAD">Moroccan-Dirham</option>
+                        <option value="MTL">Maltese-Lira</option>
+                        <option value="MXN">Mexican-Peso</option>
+                        <option value="MYR">Malaysian-Ringgit</option>
+                        <option value="NOK">Norwegian-Krone</option>
+                        <option value="NZD">New-Zealand-Dollar</option>
+                        <option value="PHP">Philippine-Peso</option>
+                        <option value="PLN">Polish-Zloty</option>
+                        <option value="RON">Romanian-Leu</option>
+                        <option value="RUB">Russian-Ruble</option>
+                        <option value="SEK">Swedish-Krona</option>
+                        <option value="SGD">Singapore-Dollar</option>
+                        <option value="SIT">Slovenian-Tolar</option>
+                        <option value="SKK">Slovak-Koruna</option>
+                        <option value="THB">Thai-Baht</option>
+                        <option value="TRY">Turkish-Lira</option>
+                        <option value="TWD">New-Taiwan-Dollar</option>
+                        <option value="USD">United-States-Dollar</option>
+                        <option value="XRP">Ripple</option>
+                        <option value="ZAR">South-African-Rand</option>
+
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div id="keys" class=" h-full w-full grid grid-cols-4 gap-2 px-5 ml-1 ">
+                <button onclick="clearDisplay()"
+                    class="bg-lime-300 h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold  ">AC</button>
+                <input onclick="changeDisplay()" class="hidden" type="checkbox" name="" id="changer">
+                <label for="changer">
+                    <div
+                        class=" flex items-center justify-center h-15 w-15 bg-lime-300 rounded-4xl hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                </label>
+                <button onclick="appendToDisplay('%')"
+                    class="bg-lime-300 h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">%</button>
+                <button onclick="appendToDisplay('/')" id="functionKey"
+                    class="bg-lime-500 h-15 hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold w-15 rounded-4xl  ">÷</button>
+                <button onclick="appendToDisplay('7')"
+                    class="bg-white h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">7</button>
+                <button onclick="appendToDisplay('8')"
+                    class="bg-white h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">8</button>
+                <button onclick="appendToDisplay('9')"
+                    class="bg-white h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">9</button>
+                <button onclick="appendToDisplay('*')" id="functionKey"
+                    class="bg-lime-500 h-15 hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold w-15 rounded-4xl  ">*</button>
+                <button onclick="appendToDisplay('4')"
+                    class="bg-white h-15 w-15 rounded-4xl hover:bg-lime-200 active:bg-lime-100 text-xl  font-semibold ">4</button>
+                <button onclick="appendToDisplay('5')"
+                    class="bg-white h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">5</button>
+                <button onclick="appendToDisplay('6')"
+                    class="bg-white h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">6</button>
+                <button onclick="appendToDisplay('-')" id="functionKey"
+                    class="bg-lime-500 h-15 hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold w-15 rounded-4xl  ">-</button>
+                <button onclick="appendToDisplay('1')"
+                    class="bg-white h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">1</button>
+                <button onclick="appendToDisplay('2')"
+                    class="bg-white h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">2</button>
+                <button onclick="appendToDisplay('3')"
+                    class="bg-white h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">3</button>
+                <button onclick="appendToDisplay('+')" id="functionKey"
+                    class="bg-lime-500 h-15 hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold w-15 rounded-4xl  ">+</button>
+                <button onclick="popValue()"
+                    class="bg-lime-300 h-15 w-15 rounded-4xl hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">C</button>
+                <button onclick="appendToDisplay('0')"
+                    class="bg-white h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">0</button>
+                <button onclick="appendToDisplay('.')"
+                    class="bg-white h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">.</button>
+                <button onclick="Calculate()" id="functionKey"
+                    class="bg-lime-500 h-15 hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold w-15 rounded-4xl  ">=</button>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+    <script src="https://kit.fontawesome.com/87738ab4eb.js" crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
