@@ -34,10 +34,13 @@ function clearDisplay() {
 }
 
 function popValue() {
+
     poping = display.value.split('')
     poping.pop()
     popped = poping.join('')
     display.value = popped
+
+    currencyDisplayTwo.value = currencyDisplayTwo.popover
 
     currpoping = currencyDisplay.value.split('')
     currpoping.pop()
