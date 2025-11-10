@@ -13,8 +13,8 @@
 
     <div class="flex justify-center items-center h-screen w-full bg-lime-300">
 
-        <div
-            class=" flex flex-col min-h-120 w-90 rounded-2xl bg-lime-100 border-3 py-2 border-stone-300 shadow-2xl overflow-hidden">
+        <div id="calculatorDisplay"
+            class=" flex flex-col min-h-120 w-90 rounded-2xl bg-lime-100 border-3 py-2 border-stone-300 shadow-2xl overflow-hidden hidden ">
 
             <input id="display" readonly type="text"
                 class=" border-b-2 my-2 border-stone-300 pr-2 h-30 outline-none items-end text-4xl text-end text-ellipsis  ">
@@ -86,9 +86,11 @@
 
                     </select>
                 </div>
-               <div class="relative">
-               <div class=" absolute right-9 rotate-90 z-1 bg-lime-100 text-green-700"> <i class="fa-solid fa-money-bill-transfer"></i></div>
-                 <hr class="border-1 border-stone-300 relative left-10 w-80 my-2"></div>
+                <div class="relative">
+                    <div class=" absolute right-9 rotate-90 z-1 bg-lime-100 text-green-700"> <i
+                            class="fa-solid fa-money-bill-transfer"></i></div>
+                    <hr class="border-1 border-stone-300 relative left-10 w-80 my-2">
+                </div>
                 <div class="flex items-center justify-end">
                     <p id="currencyCodeTwo" class="text-2xl font-semibold mr-1">INR</p>
                     <input id="currencyDisplayTwo" readonly
@@ -168,8 +170,12 @@
                         <i class="fa-solid fa-calculator"></i>
                     </div>
                 </label>
-                <button onclick="appendToDisplay('%')"
+                <button id="hideBtn" onclick="appendToDisplay('%')"
                     class="bg-lime-300 h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold ">%</button>
+                <button onclick="snakeGame()" id="gameDisplay"
+                    class="flex items-center justify-center bg-lime-300 h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-md font-semibold hidden ">
+                    <img class="h-7 w-7 relative left-4" src="./asset/snake.png" alt="">
+                </button>
                 <button onclick="appendToDisplay('/')" id="functionKey"
                     class="bg-lime-500 h-15 hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold w-15 rounded-4xl  ">÷</button>
                 <button onclick="appendToDisplay('7')"
@@ -210,9 +216,75 @@
 
         </div>
 
+        <div id="gameScreen"
+            class="flex gap-2 flex-col min-h-120 w-90 rounded-2xl p-1 bg-lime-100 border-3  border-stone-300 shadow-2xl overflow-hidden ">
+
+            <div class="w-86 min-h-80 border-5 rounded-2xl ml-1 border-green-600"></div>
+            <p class="text-center font-bold text-2xl mb-[-15px] ">Score : <span>0</span></p>
+
+
+            <div class="flex justify-center gap-10 items-end  min-h-35 py-4 w-full ">
+
+                <div class="flex flex-col gap-4">
+                    <button onclick=""
+                        class="flex items-center justify-center bg-lime-300 h-12 w-12 text-xl rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-md font-semibold  ">
+                        <i class="fa-solid fa-circle-play"></i>
+                    </button>
+
+                    <button onclick="returnCurrDisplay()"
+                        class="flex items-center justify-center bg-lime-300 h-12 w-12 text-xl rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-md font-semibold  ">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                    </button>
+                </div>
+                <div id="controller" class=" flex justify-center items-center  ">
+
+                    <div class="w-30 h-30 bg-lime-400 rounded-full flex items-center justify-center relative shadow-lg">
+                        <!-- Up -->
+                        <button
+                            class="absolute top-2 left-1/2 -translate-x-1/2 bg-lime-500 hover:bg-lime-600 text-black font-bold text-xl rounded-full w-10 h-10 flex items-center justify-center shadow-md">
+                            <i class="fa-solid fa-circle-up"></i>
+                        </button>
+                        <!-- Down -->
+                        <button
+                            class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-lime-500 hover:bg-lime-600 text-black font-bold text-xl rounded-full w-10 h-10 flex items-center justify-center shadow-md">
+                            <i class="fa-solid fa-circle-down"></i>
+                        </button>
+                        <!-- Left -->
+                        <button
+                            class="absolute left-2 top-1/2 -translate-y-1/2 bg-lime-500 hover:bg-lime-600 text-black font-bold text-xl rounded-full w-10 h-10 flex items-center justify-center shadow-md">
+                            <i class="fa-solid fa-circle-left"></i>
+                        </button>
+                        <!-- Right -->
+                        <button
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-lime-500 hover:bg-lime-600 text-black font-bold text-xl rounded-full w-10 h-10 flex items-center justify-center shadow-md">
+                            <i class="fa-solid fa-circle-right"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <div class="flex flex-col gap-4">
+
+                    <button onclick=""
+                        class="flex items-center justify-center text-xl bg-lime-300 h-12 w-12 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-md font-semibold  ">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </button>
+
+                    <button onclick="returnCalcDisplay()"
+                        class="flex items-center justify-center text-xl bg-lime-300 h-12 w-12 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-md font-semibold  ">
+                        <i class="fa-solid fa-calculator"></i>
+                    </button>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
 
     </div>
-
 
     <script src="https://kit.fontawesome.com/87738ab4eb.js" crossorigin="anonymous"></script>
     <script src="./main.js"></script>
