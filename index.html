@@ -217,16 +217,16 @@
         </div>
 
         <div id="gameScreen"
-            class="flex gap-2 flex-col min-h-120 w-90 rounded-2xl p-1 bg-lime-100 border-3  border-stone-300 shadow-2xl overflow-hidden hidden">
+            class="flex gap-2 flex-col min-h-120 w-90 rounded-2xl p-1 bg-lime-100 border-3  border-stone-300 shadow-2xl overflow-hidden hidden
 
-            <div class="w-86 min-h-80 border-5 rounded-2xl ml-1 border-green-600"></div>
-            <p class="text-center font-bold text-2xl mb-[-15px] ">Score : <span>0</span></p>
+            <canvas id="gameboard" width="500" height="500" class=" border-5 rounded-xl ml-1 border-green-600"></canvas>
+            <p class="text-center font-bold text-2xl mb-[-15px] ">Score : <span id="score">0</span></p>
 
 
             <div class="flex justify-center gap-10 items-end  min-h-35 py-4 w-full ">
 
                 <div class="flex flex-col gap-4">
-                    <button onclick=""
+                    <button onclick="startAgain()"
                         class="flex items-center justify-center bg-lime-300 h-12 w-12 text-xl rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-md font-semibold  ">
                         <i class="fa-solid fa-circle-play"></i>
                     </button>
@@ -240,22 +240,22 @@
 
                     <div class="w-30 h-30 bg-lime-400 rounded-full flex items-center justify-center relative shadow-lg">
                         <!-- Up -->
-                        <button
+                        <button onclick="goUP()"
                             class="absolute top-2 left-1/2 -translate-x-1/2 bg-lime-500 hover:bg-lime-600 active:bg-lime-100 text-black font-bold text-xl rounded-full w-10 h-10 flex items-center justify-center shadow-md">
                             <i class="fa-solid fa-circle-up"></i>
                         </button>
                         <!-- Down -->
-                        <button
+                        <button onclick="goDown()"
                             class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-lime-500 hover:bg-lime-600 active:bg-lime-100 text-black font-bold text-xl rounded-full w-10 h-10 flex items-center justify-center shadow-md">
                             <i class="fa-solid fa-circle-down"></i>
                         </button>
                         <!-- Left -->
-                        <button
+                        <button onclick="goLeft()"
                             class="absolute left-2 top-1/2 -translate-y-1/2 bg-lime-500 hover:bg-lime-600 active:bg-lime-100 text-black font-bold text-xl rounded-full w-10 h-10 flex items-center justify-center shadow-md">
                             <i class="fa-solid fa-circle-left"></i>
                         </button>
                         <!-- Right -->
-                        <button
+                        <button onclick="goRight()"
                             class="absolute right-2 top-1/2 -translate-y-1/2 bg-lime-500 hover:bg-lime-600 active:bg-lime-100 text-black font-bold text-xl rounded-full w-10 h-10 flex items-center justify-center shadow-md">
                             <i class="fa-solid fa-circle-right"></i>
                         </button>
@@ -266,7 +266,7 @@
 
                 <div class="flex flex-col gap-4">
 
-                    <button onclick=""
+                    <button id="resetBtn" onclick="restartGame()"
                         class="flex items-center justify-center text-xl bg-lime-300 h-12 w-12 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-md font-semibold  ">
                         <i class="fa-solid fa-arrows-rotate"></i>
                     </button>
