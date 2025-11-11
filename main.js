@@ -19,21 +19,26 @@ function appendToDisplay(input) {
     display.value += input;
     displayTwo.value += input;
     currencyDisplay.value += input;
-    currencyDisplayTwo.value = currencyDisplayTwo.popover
+    currencyDisplayTwo.value = ""
 }
 
 function Calculate() {
-    calc = eval(display.value)
-    display.value = calc
+    try {
+        let calc = eval(display.value)
+        display.value = calc
+        currencyConverter()
+    } catch (error) {
+        display.value = "Error"
+    }
 
     currencyConverter()
 
 }
 
 function clearDisplay() {
-    display.value = display.popover
-    currencyDisplay.value = display.popover
-    currencyDisplayTwo.value = display.popover
+    display.value = ''
+    currencyDisplay.value = ''
+    currencyDisplayTwo.value = ''
 
 }
 
@@ -44,7 +49,7 @@ function popValue() {
     popped = poping.join('')
     display.value = popped
 
-    currencyDisplayTwo.value = currencyDisplayTwo.popover
+    currencyDisplayTwo.value = ''
 
     currpoping = currencyDisplay.value.split('')
     currpoping.pop()
@@ -54,8 +59,8 @@ function popValue() {
 
 function selectCountry() {
 
-    currencyDisplay.value = currencyDisplay.popover
-    currencyDisplayTwo.value = currencyDisplayTwo.popover
+    currencyDisplay.value = ''
+    currencyDisplayTwo.value = ''
     currencyCode.innerText = currencyOne.value
     currencyCodeTwo.innerText = currencyTwo.value
 
@@ -63,9 +68,9 @@ function selectCountry() {
 
 function changeDisplay() {
 
-    display.value = display.popover
-    currencyDisplay.value = currencyDisplay.popover
-    currencyDisplayTwo.value = currencyDisplayTwo.popover
+    display.value = ''
+    currencyDisplay.value = ''
+    currencyDisplayTwo.value = ''
 
     if (changer.checked) {
         hideBtn.className = "bg-lime-300 h-15 w-15 rounded-4xl  hover:bg-lime-200 active:bg-lime-100 text-xl font-semibold hidden"
@@ -90,7 +95,7 @@ const currencyConverter = async (e) => {
     console.log(data)
     let code = data.exchange_rates[liveCode]
     const results = currencyDisplay.value * code
-    currencyDisplayTwo.value += results.toFixed(2)
+    currencyDisplayTwo.value = results.toFixed(2)
 }
 
 
@@ -162,7 +167,6 @@ resetBtn.addEventListener("click", resetGame);
 
 function gameStart() {
 
-
     snake = [
 
         { x: unitSize * 4, y: 0 },
@@ -172,6 +176,7 @@ function gameStart() {
         { x: 0, y: 0 },
     ];
     running = true;
+    score = 0
     scoreText.textContent = score;
     createFood();
     drawFood();
@@ -206,7 +211,7 @@ function createFood() {
     }
 
     foodX = randomFood(0, gameWidth - unitSize)
-    foodY = randomFood(0, gameWidth - unitSize)
+    foodY = randomFood(0, gameHeight - unitSize)
 }
 function drawFood() {
     ctx.fillStyle = foodColor
@@ -311,6 +316,7 @@ function displayGameOver() {
 function resetGame() {
 
     score = 0
+    scoreText.textContent = score
     xVelocity = unitSize;
     yVelocity = 0;
     snake = [
@@ -331,14 +337,12 @@ function startAgain() {
 
 function restartGame() {
 
-    // ctx.
-
     resetGame()
+    scoreText.textContent = 0
     clearBoard()
     ctx.font = " 50px MV Boli"
     ctx.fillStyle = "black"
     ctx.textAlign = "center"
-    scoreText.textContent = 0
     ctx.fillText("Start again✨", gameWidth / 2, gameHeight / 2);
     drawSnake()
 
