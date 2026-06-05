@@ -29,15 +29,7 @@ Fun and interactive experience inspired by the traditional Snake game.
 HTML5
 CSS3
 JavaScript (ES6)
-📸 Screenshots
 
-Add your screenshots here:
-
-![Calculator](./screenshots/calculator.png)
-
-![Currency Converter](./screenshots/converter.png)
-
-![Snake Game](./screenshots/snake-game.png)
 📂 Project Structure
 calulator_convertor/
 │
